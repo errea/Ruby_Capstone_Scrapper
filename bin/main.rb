@@ -1,81 +1,58 @@
-#require_relative '../lib/input_check'
-require_relative '../lib/scrapper'
+#!/usr/bin/env ruby
 
+require_relative '../lib/udacity_scraper'
+require_relative '../lib/indeed_scraper'
+require_relative '../lib/remoteio_scraper'
 
-@ecom = Scrape.new
-@input_check = Input_check.new
+title = <<~MLS
 
-def  show_ecom(product_name, product_price)
-    
+  ╦   ╦┌─┐┌┐     ╔═╗┌─┐┬─┐┌─┐┌─┐┌─┐┬─┐
+  ║║║├┤   ├┴┐  ╚═╗│      ├┬┘├─┤├─┘├┤   ├┬┘
+  ╚╩╝└─┘└─┘  ╚═╝└─┘┴└─┴   ┴┴      └─┘┴└─
+
+  by Eri \u2021
+
+MLS
+puts title
+puts 'Welcome to My Awesome Web Scraper!'
+puts 'You have a Choice to pick any of this three Sites to Scrap? (udacity / indeed / remote.io)'
+input = ''
+
+loop do
+  input = gets.chomp
+  break if ['udacity', 'indeed', 'remote.io'].include?(input)
+
+  puts 'Oopss!!! Denied, You can enter any three of this: udacity / indeed / remote.io'
 end
 
-def ecom_get_index
-  index = @ecommerce.user_menu_index
-  amount = @ecommerce.ecom_amount
-  @input_check.display_clear
-  puts '+***************************+'
-  puts 'Can you Please select an option?'
-  index[0].each_with_index { |item, i| puts "#{i + 1}. #{item} (#{amount[i]} ecommerce)"}
-  puts '+***************************+'
-  user_answer = @input_check.num_check(gets.chomp.to_i, 1, index.length + 1)
-  product_price = ''
-  product_name = ''
-  @ecommerce.user_menu_index[0].each_with_index {|item, index| name = item if index == (ans - 1)}
-  @ecommerce.user_menu_index[1].each_with_index {|item, index| link = item if index == (ans - 1)}
-  print_movies(link, product_name)
-end
+website = nil
 
-def user_menu #this is the main menu interface which the user would see
-  @input_check.display_clear
-  puts 'Menu'
-  puts '+***********************+'
-  puts '1. Show Products'
-  puts '2. All Ecommerce Products'
-  puts '3. Credits'
-  puts '4. Exit'
-  puts '+***********************+'
-  input = @input_check.num_check(gets.chomp.to_i, 1,4)
-  case input
-  when 1
-    ecom_get_index
-  when 2
-    menu_ecom
-  when 3
-    display_credits
-  when 4
-    finish_scrapping
+case input
+when 'udacity'
+  url = 'https://www.udacity.com/courses/all'
+  website = UdacityScraper.new(url)
+
+when 'indeed'
+  url = 'https://www.indeed.com/jobs?q=Ruby+On+Rails&l=Remote&rbl=Remote&jlid=aaa2b906602aa8f5&sort=date'
+
+  website = IndeedScraper.new(url)
+when 'remote.io'
+  puts 'Welcome to webscraper for remote.io :)'
+  puts 'The search keywords are as followed'
+  puts '+************************************************+'
+  puts '0:ruby, 1: javascript,2: ruby-on-rails,3: reactjs,4: python,5: java,6: php,7: kubernetes, 8: docker,9: flask'
+  puts '+************************************************+'
+  puts 'Please enter number / combination from above list (eg. 328 for reactjs, ruby-on-rails, and docker)'
+
+  num = nil
+  loop do
+    num = gets.chomp.split('').map(&:to_i)
+    break if num.all? { |i| i <= 9 && i >= 0 }
+
+    puts 'Oopss!!! Denied! invalid search combination, Please enter a valid search combination'
   end
+
+  website = RemoteIoScraper.new(num)
 end
 
-
-def display_credits
-  display = Display.new
-  display.display_clear
-  puts '+----------------------------------------------------------------------------------+'
-  puts '|       Thank you for Scrapping!                                            |'   
-  puts '|                                                                                  |'
-  puts '|                                                              BY:                     |'
-  puts '|                                                              ERI                     |'
-  puts '|                                                                                  MICROVERSE |'
-  puts '+----------------------------------------------------------------------------------+'
-  puts 'Press any key to go back to menu....'
-  gets
-  user_menu
-end
-
-
-def finish_scrapping    #when the user is done scrapper the site this method ends the process
-  puts 'Good Bye!!! HAPPY product HAPPY customer'
-end
-
-def welcome_screen_user
-  @input_check.display_clear
-  puts '+***************************************+'
-  puts 'Hello, You Are here!!!LOL, TAKE A TOUR'
-  puts 'press any key to PROCEED'
-  puts '+***************************************+'
-  gets
-  user_menu
-end
-
-welcome_screen_user
+website.scrap
