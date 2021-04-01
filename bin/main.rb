@@ -1,12 +1,12 @@
-require_relative '../lib/scraper'
-require_relative '../lib/input_checker'
+require_relative '../lib/scrapper'
+require_relative '../lib/input_check'
 
-@input_checker = Imputchecker.new
-@movies = Scrapper.new
+@input_check = Imputcheck.new
+#@movies = Scrapper.new
 
-def main_menu
-  @input_checker.display_clear
-  puts 'Main Menu'
+def user_menu #this is the main menu interface which the user would see
+  @input_check.display_clear
+  puts 'Menu'
   puts '+---------------------+'
   puts '1. Show index'
   puts '2. Search options'
@@ -14,7 +14,7 @@ def main_menu
   puts '4. Credits'
   puts '5. Exit'
   puts '+---------------------+'
-  input = @input_checker.number_checker(gets.chomp.to_i, 1,5)
+  input = @input_check.num_checker(gets.chomp.to_i, 1,5)
   case input
   when 1
     movie_index_by
@@ -22,7 +22,7 @@ def main_menu
   when 3
   when 4
   when 5
-    exit_game
+    finish_scrapping
   end
 end
 
