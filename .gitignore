@@ -1,4 +1,10 @@
-Gemfile
+.DS_Store
+remote_io.txt
+remote_io.csv
+indeed_jobs.txt
+indeed_jobs.csv
+udacity_courses.txt
+udacity_courses.csv
+.byebug_history
 Gemfile.lock
-Gemfile
-Gemfile.lock
+testing.csv
