@@ -1,11 +1,7 @@
-class Inputcheck
+class Input_check
     require 'rbconfig'
     include RbConfig
 
-    def num_check()
-     
-    end
-  
     def display_clear
       case CONFIG['host_os']
       when /mswin|windows/i
