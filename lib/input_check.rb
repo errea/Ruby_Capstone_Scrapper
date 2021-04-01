@@ -1,8 +1,8 @@
-class Imputcheck
+class Inputcheck
     require 'rbconfig'
     include RbConfig
 
-    def num_checker()
+    def num_check()
      
     end
   
