@@ -66,16 +66,16 @@ def print_movies(link, name)
 
 end
 
-def exit_game
-  puts 'Good Bye'
+def finish_scrapping
+  puts 'Good Bye!!! HAPPY CODING'
 end
 
-def main_screen
-  @input_checker.display_clear
-  puts 'hello welcome to wikipedia movie web scrapper'
-  puts 'press any key to continue'
+def welcome_screen_user
+  @input_check.display_clear
+  puts 'Hi, You Are here!!!LOL, TAKE A TOUR'
+  puts 'press any key to PROCEED'
   gets
   main_menu
 end
 
-main_screen
+welcome_screen_user
