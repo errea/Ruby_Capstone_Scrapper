@@ -1,51 +1,49 @@
-require 'nokogiri'
 require 'httparty'
 require 'byebug'
 require "open-uri"
+require 'nokogiri'
+
 
 class Scrape
     def initialize
-            unparsed = HTTParty.get('https://en.wikipedia.org/wiki/Lists_of_films#Alphabetical_indices')
-            @parsed = Nokogiri::HTML(unparsed)
+            unparsed_page = HTTParty.get('https://payporte.com/new-arrivals.html?p=1')
+            @parsed_page = Nokogiri::HTML(unparsed_page)
+            byebug
           end
         
-          def menu_index
+          def user_menu_index
             @index = []
-            name = []
-            links = []
-            array = @parsed.css('table.wikitable').css('tr').css('td').css('a')
-            (array.length - 3).times do |i|
-              name.push(array[i].text)
-              links.push(array[i].attributes['href'].value)
-            end
-            @index.push(name)
-            @index.push(links)
-            @index
+            product_name = []
+            product_price = []
+            product_links = []
+            #array_index_menu = @parsed.css
           end
         
-          def movies_amount
-            amount = []
+          def ecom_count
+            total_count = []
             @index[1].each_with_index do |item, i|
-              unparsed = HTTParty.get("")
-              parsed = Nokogiri::HTML(unparsed)
-              amount[i] = parsed.css('div.div-col').css('a').count
+              unparsed_pages = HTTParty.get("https://payporte.com/new-arrivals.html")
+              parsed_pages = Nokogiri::HTML(unparsed_pages)
+              total_count[i] = parsed_pages.css('div.products.list.items.product-items').css('ol').count
             end
-            amount
+            total_count
           end
         
-          def menu_movies(input)
-            unparsed = HTTParty.get("https://en.wikipedia.org/#{input}")
-            parsed = Nokogiri::HTML(unparsed)
-            name = []
-            links = []
-            result = []
-            array = parsed.css('div.div-col').css('a')
+          def menu_ecom(input_product)
+            unparsed_pages = HTTParty.get("https://payporte.com/new-arrivals.html")
+            parsed_pages = Nokogiri::HTML(unparsed_pages)
+            product_name = []
+            product_links = []
+            product_price = []
+            array = parsed_pages.css('div.products.list.items.product-items').css('ol')
             array.length.times do |i|
-              name.push(array[i].text)
-              links.push(array[i].attributes['href'].value)
+              product_name.push(array[i].text)
+              product_links.push(array[i].attributes['href'].value)
+              product_price.push(array[i].text)
             end
-            result.push(name)
-            result.push(links)
+            result.push(product_name)
+            result.push(product_links)
+            result.push(product_price)
             result
           end
         end
