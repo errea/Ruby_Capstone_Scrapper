@@ -1,9 +1,9 @@
-require_relative '../lib/input_check'
+#require_relative '../lib/input_check'
 require_relative '../lib/scrapper'
 
 
-@ecom = Scrapper.new
-@input_check = Inputcheck.new
+@ecom = Scrape.new
+@input_check = Input_check.new
 
 def  show_ecom(product_name, product_price)
     
@@ -39,10 +39,28 @@ def user_menu #this is the main menu interface which the user would see
   when 1
     ecom_get_index
   when 2
+    menu_ecom
   when 3
+    display_credits
   when 4
     finish_scrapping
   end
+end
+
+
+def display_credits
+  display = Display.new
+  display.display_clear
+  puts '+----------------------------------------------------------------------------------+'
+  puts '|       Thank you for Scrapping!                                            |'   
+  puts '|                                                                                  |'
+  puts '|                                                              BY:                     |'
+  puts '|                                                              ERI                     |'
+  puts '|                                                                                  MICROVERSE |'
+  puts '+----------------------------------------------------------------------------------+'
+  puts 'Press any key to go back to menu....'
+  gets
+  user_menu
 end
 
 
