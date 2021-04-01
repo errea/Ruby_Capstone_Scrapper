@@ -14,7 +14,7 @@ def user_menu #this is the main menu interface which the user would see
   puts '4. Credits'
   puts '5. Exit'
   puts '+---------------------+'
-  input = @input_check.num_checker(gets.chomp.to_i, 1,5)
+  input = @input_check.num_check(gets.chomp.to_i, 1,5)
   case input
   when 1
     movie_index_by
