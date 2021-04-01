@@ -1,75 +1,77 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Ruby Capston Project: Web Scraper
 
-# Getting the first proyect Capstone for Ruby, doing a scraper
+> Ruby Capstone Project of Microverse, which students have to complete a real-world-like project within 72 hours according to [this project specifications](https://www.notion.so/microverse/Build-your-own-scraper-f54eaca54d8a4d758a5f0141468127a8)
 
-> This is a project for us to learn more about Ruby, and OOP.
+I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all courses from udacity.com and jobs from indeed.com and remote.io into CSV file.
 
 ## Built With
 
-- Git
-- Github
-- VSCode
-- Rubocop
-- Rspect
 - Ruby
+- Nokogiri gem
+- HTTParty gem
+- Buybug
 
-## Live Demo
+## Project Structure
 
-[Live Demo Link](https://replit.com/join/ltnolzxq-rolandodiegodie)
+```
+├── README.md
+├── bin
+│   └── main.rb
+└── lib
+    └── scraper.rb
+    └── udacity_scraper.rb
+    └── indeed_scraper.rb
+    └── remoteio_scraper.rb
+└── rspec
+    └── scraper_spec.rb
+    └── spec_helper.rb
+```
 
+## Video Presentation
+Feel free to check out this [link](https://www.youtube.com/watch?v=BRg-9HNG4BI&feature=youtu.be) for a 3min video walkthrough :)
 
-## Getting Started
+## Deployment
+1) Git clone this repo and cd the to the `web_scraper` directory.
+2) Run `bundle install` in command line to install Nokogiri and HTTParty Gem.
+3) Run `bin/main.rb`.
+4) Input either 'udacity', 'indeed', or 'remote.io' and follows the respective commands.
+5) Tada! 'udacity_courses.csv', 'indeed_jobs.csv', or 'remote_io.csv' would be created at the root directory respectively :)
 
-For linters-checking purposes, run:
+## Run tests
+1) Git clone this repo and cd the to the `web_scraper` directory.
+2) Install rspec with `gem install rspec`.
+3) Run `rspec` in Command Line.
+4) You would see failures because all 3 scraped files haven't been created yet.
+5) To solve it, run `ruby bin/main.rb` and input 'udacity', 'indeed', and 'remote.io' for every execution.
+6) Run `rspec` in CLI again. The test cases would success upon each file created :)
 
-`bundle install`
+## Authors
 
-`./bin/main.rb`
+👤 **Eri**
 
-when it's complet you can get the results in the next file:
-
-`search.html`
-
-You can Use any web browser to see the result.
-
-For Rspect, run:
-
-`rspect`
-
-To get a local copy up and running follow these simple example steps.
-
-1. Open terminal or command line
-2. Run the following commands
- - $ `git clone https://github.com/kiranitor123/computrabajo_scraper.git`
-
-### Prerequisites
-
-Owning have Ruby installed :D
-
-### To review
-
-Just clone the github repositori
-
-Using a GitHub Descktop program or SSH protocol
-
-## Author
-
-👤 **Rolando**
-
-- GitHub: [@Rolando](https://github.com/kiranitor123)
-- Twitter: [@rolando](https://twitter.com/FayeRolando)
-- LinkedIn: [Rolando](https://www.linkedin.com/in/rolando-diego-alvarez-faye-b2b34a1a9/)
+- Github: [@errea](https://github.com/errea)
+- Twitter: [@Erreakay](https://github.com/errea)
+- Linkedin: [Eri Okereafor](https://www.linkedin.com/in/kyle-lawzhunkhing/)
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/errea/Ruby_Capstone_Scrapper/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
+## Acknowledgments
+
+- Microverse
+- Nokogiri gem
+- HTTParty Parser
+- Udacity.com
+- Indeed.com
+- Remote.io
+
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](LICENSE) licensed.
