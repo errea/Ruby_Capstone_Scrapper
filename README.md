@@ -19,6 +19,9 @@ I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all 
     └── remoteio_scraper.rb
 └── rspec
     └── scraper_spec.rb
+    └── indeed_spec.rb
+    └── remoteio_spec.rb
+    └── udacity_spec.rb
     └── spec_helper.rb
 ```
 
