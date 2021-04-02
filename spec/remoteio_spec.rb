@@ -3,6 +3,7 @@ require_relative '../lib/scraper'
 require_relative '../lib/udacity_scraper'
 require_relative '../lib/indeed_scraper'
 require_relative '../lib/remoteio_scraper'
+require 'nokogiri'
 
 RSpec.describe RemoteIoScraper do
   subject { RemoteIoScraper.new([1, 2, 3]) }
