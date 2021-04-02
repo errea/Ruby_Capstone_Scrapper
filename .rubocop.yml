@@ -6,6 +6,7 @@ AllCops:
 
   DisplayCopNames: true
 
+
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
@@ -23,8 +24,6 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-Style/EndOfLine:
-  EnforcedStyle: crlf
 Style/EachForSimpleLoop:
   Enabled: false
 Style/AndOr:
@@ -33,11 +32,14 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
- 
+  
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
+  AllowForAlignment: false
+Layout/EndOfLine:
+  Enabled: true
   AllowForAlignment: false
 Layout/MultilineMethodCallIndentation:
   Enabled: true

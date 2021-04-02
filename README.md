@@ -6,7 +6,6 @@ I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all 
 
 ## Built With
 
-
 ## Project Structure
 
 ```
@@ -24,7 +23,7 @@ I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all 
 ```
 
 ## Video Presentation
-Feel free to check out this [link](https://www.youtube.com/watch?v=BRg-9HNG4BI&feature=youtu.be) for a 3min video walkthrough :)
+Feel free to check out this [link]() for a 3min video walkthrough :)
 
 ## Deployment
 1) Git clone this repo and cd the to the `web_scraper` directory.
@@ -47,7 +46,7 @@ Feel free to check out this [link](https://www.youtube.com/watch?v=BRg-9HNG4BI&f
 
 - Github: [@errea](https://github.com/errea)
 - Twitter: [@Erreakay](https://github.com/errea)
-- Linkedin: [Eri Okereafor](https://www.linkedin.com/in/kyle-lawzhunkhing/)
+- Linkedin: [Eri Okereafor](https://www.linkedin.com/in/eri-ngozi-okereafor/)
 
 ## 🤝 Contributing
 
