@@ -1,4 +1,4 @@
-# Ruby Capston Project: Web Scraper
+# Ruby Capstone Project: Web Scraper.
 
 > Ruby Capstone Project of Microverse, which students have to complete a real-world-like project within 72 hours according to [this project specifications](https://www.notion.so/microverse/Build-your-own-scraper-f54eaca54d8a4d758a5f0141468127a8)
 
