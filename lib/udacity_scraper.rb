@@ -6,6 +6,7 @@ class UdacityScraper < Scraper
   attr_accessor :url
 
   def initialize(url)
+    super
     @url = url
     @result = ['Course Name,Skills Covered,Difficulty,Schoool,URL']
   end

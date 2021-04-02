@@ -33,16 +33,12 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
-  
+ 
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
   AllowForAlignment: false
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: false
-Layout/EndOfLine:
-  EnforcedStyle: crlf
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented

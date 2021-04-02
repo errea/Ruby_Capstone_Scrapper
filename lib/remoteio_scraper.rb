@@ -7,6 +7,7 @@ class RemoteIoScraper < Scraper
   attr_accessor :url
 
   def initialize(num_array)
+    super
     @num_array = num_array
     @result = ['Title,Company,Skills,Day_posted,URL']
     @url = 'https://www.remote.io/remote-jobs?s='

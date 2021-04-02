@@ -6,6 +6,7 @@ class IndeedScraper < Scraper
   attr_accessor :url
 
   def initialize(url)
+    super
     @url = url
     @result = ['Title,Company,Location,Summary,URL, Day_posted']
   end
