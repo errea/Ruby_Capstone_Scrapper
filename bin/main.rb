@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require_relative '../lib/udacity_scraper'
 require_relative '../lib/indeed_scraper'
 require_relative '../lib/remoteio_scraper'
