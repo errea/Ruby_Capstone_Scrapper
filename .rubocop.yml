@@ -1,9 +1,8 @@
 AllCops:
-  NewCops: enable
   Exclude:
+    - "README.md"
     - "Guardfile"
     - "Rakefile"
-    - "node_modules/**/*"
 
   DisplayCopNames: true
 
@@ -16,15 +15,16 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  IgnoredMethods: ['describe']
+  ExcludedMethods: ['describe']
   Max: 30
-Metrics/ModuleLength:
-  Enabled: false
+
 
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/EndOfLine:
+  EnforcedStyle: crlf
 Style/EachForSimpleLoop:
   Enabled: false
 Style/AndOr:
@@ -33,21 +33,16 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+  
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
   AllowForAlignment: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EndOfLine:
+  EnforcedStyle: crlf
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-Lint/RaiseException:
-  Enabled: false
-Lint/StructNewOverride:
-  Enabled: false
-Style/HashEachMethods:
-  Enabled: false
-Style/HashTransformKeys:
-  Enabled: false
-Style/HashTransformValues:
-  Enabled: false
