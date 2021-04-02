@@ -15,4 +15,10 @@ RSpec.describe IndeedScraper do
     subject.scrap
     expect(File.exist?('indeed_jobs.csv')).to be_truthy
   end
+
+  it 'should not create another file after invoking #scrap' do
+    puts "We're testing if website scrapping from indeed.com works fine..."
+    subject.scrap
+    expect(File.exist?('another_jobs.csv')).to be_falsy
+  end
 end

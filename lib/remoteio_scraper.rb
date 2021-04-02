@@ -15,7 +15,7 @@ class RemoteIoScraper
   def scrap
     puts "Keywords selected are #{@num_array.map { |n| @num_url[n] }.join(' & ')}"
     @url = url_maker(@num_array)
-    page_start_num = (1..5).to_a 
+    page_start_num = (1..5).to_a
     scraping_page(page_start_num)
     write('remote_io.csv', @result, 'jobs')
   end

@@ -19,10 +19,20 @@ RSpec.describe RemoteIoScraper do
     subject.scrap
     expect(File.exist?('remote_io.csv')).to be_truthy
   end
+
+  it 'should not create another file after invoking #scrap' do
+    puts "We're testing if website scrapping from remote.io works fine..."
+    subject.scrap
+    expect(File.exist?('another_remote.csv')).to be_falsy
+  end
 end
 
 RSpec.describe 'checking if files are created' do
   it 'should contains indeed_jobs.csv file' do
     expect(File.exist?('remote_io.csv')).to be_truthy
+  end
+
+  it 'should not contain another file' do
+    expect(File.exist?('another_remote.csv')).to be_falsy
   end
 end

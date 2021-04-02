@@ -17,4 +17,9 @@ RSpec.describe Scraper do
     subject.write('testing.csv', [1, 2, 3, 4, 5], 'tests')
     expect(File.exist?('testing.csv')).to be_truthy
   end
+
+  it 'checks if file is  not written' do
+    subject.write('testing.csv', [1, 2, 3, 4, 5], 'tests')
+    expect(File.exist?('testing_file')).to be_falsy
+  end
 end

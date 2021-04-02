@@ -12,4 +12,10 @@ RSpec.describe UdacityScraper do
     subject.scrap
     expect(File.exist?('udacity_courses.csv')).to be_truthy
   end
+
+  it 'should not create another file after invoking #scrap' do
+    puts "We're testing if website scrapping from udacity.com works fine..."
+    subject.scrap
+    expect(File.exist?('udacity_file.csv')).to be_falsy
+  end
 end
