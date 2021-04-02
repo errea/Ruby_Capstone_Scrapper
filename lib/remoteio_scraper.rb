@@ -1,13 +1,11 @@
-require_relative './scraper'
 require 'nokogiri'
 require 'httparty'
 
 # Parsing jobs from remote.io up to 100 jobs
-class RemoteIoScraper < Scraper
+class RemoteIoScraper
   attr_accessor :url
 
   def initialize(num_array)
-    super
     @num_array = num_array
     @result = ['Title,Company,Skills,Day_posted,URL']
     @url = 'https://www.remote.io/remote-jobs?s='
@@ -49,5 +47,14 @@ class RemoteIoScraper < Scraper
       add_job(jobs_listings)
       puts "#{@result.length - 1} jobs have been scraped from remote.io..."
     end
+  end
+
+  def write(file_name, arr, subject)
+    File.write(file_name, arr.join("\n"))
+    puts "#{file_name} file is created at the root directory with #{arr.length - 1} #{subject}."
+  end
+
+  def parsing_page(url)
+    Nokogiri::HTML(HTTParty.get(url).body)
   end
 end

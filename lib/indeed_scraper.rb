@@ -1,12 +1,10 @@
-require_relative './scraper'
 require 'nokogiri'
 require 'httparty'
 
-class IndeedScraper < Scraper
+class IndeedScraper
   attr_accessor :url
 
   def initialize(url)
-    super
     @url = url
     @result = ['Title,Company,Location,Summary,URL, Day_posted']
   end
@@ -55,5 +53,14 @@ class IndeedScraper < Scraper
 
   def sort_by_dates(arr)
     [arr[0]] + arr[1..-1].sort_by { |str| str.split(',')[-1][0, 2].to_i }
+  end
+
+  def write(file_name, arr, subject)
+    File.write(file_name, arr.join("\n"))
+    puts "#{file_name} file is created at the root directory with #{arr.length - 1} #{subject}."
+  end
+
+  def parsing_page(url)
+    Nokogiri::HTML(HTTParty.get(url).body)
   end
 end

@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-require_relative '../lib/scraper'
 require_relative '../lib/udacity_scraper'
 require_relative '../lib/indeed_scraper'
 require_relative '../lib/remoteio_scraper'

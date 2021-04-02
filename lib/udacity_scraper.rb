@@ -1,12 +1,10 @@
-require_relative './scraper'
 require 'nokogiri'
 require 'httparty'
 
-class UdacityScraper < Scraper
+class UdacityScraper
   attr_accessor :url
 
   def initialize(url)
-    super
     @url = url
     @result = ['Course Name,Skills Covered,Difficulty,Schoool,URL']
   end
@@ -29,5 +27,14 @@ class UdacityScraper < Scraper
       url = "https://www.udacity.com#{card.css('a.capitalize')[0].attributes['href'].value}"
       @result << "#{course_name},#{skills_covered},#{difficulty},#{school},#{url}"
     end
+  end
+
+  def write(file_name, arr, subject)
+    File.write(file_name, arr.join("\n"))
+    puts "#{file_name} file is created at the root directory with #{arr.length - 1} #{subject}."
+  end
+
+  def parsing_page(url)
+    Nokogiri::HTML(HTTParty.get(url).body)
   end
 end
