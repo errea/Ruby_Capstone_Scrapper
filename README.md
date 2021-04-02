@@ -23,7 +23,7 @@ I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all 
 ```
 
 ## Video Presentation
-Feel free to check out this [link]() for a 3min video walkthrough :)
+Feel free to check out this [link](https://www.loom.com/share/4e3c2779510740759876c791aacf9868) for a 3min video walkthrough :)
 
 ## Deployment
 1) Git clone this repo and cd the to the `web_scraper` directory.
