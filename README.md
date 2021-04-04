@@ -6,6 +6,10 @@ I challenged myself to do a 3-in-1 Web Scraper, which allows users to parse all 
 
 ## Built With
 
+- Ruby
+- Nokogiri gem
+- HTTParty
+
 ## Project Structure
 
 ```
